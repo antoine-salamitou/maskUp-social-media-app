@@ -1,0 +1,7 @@
+<resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">f936zFJUpKI8SN7NeAGsgp5xuufU0db06abd-5f8e-44b9-8dce-f671f61c5621</string>
+    <string name="app_name">Mask</string>
+    <string name="facebook_app_id">711338075872168</string>
+    <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true">ALWAYS_SEND</string>
+    <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true">ALWAYS_SEND</string>
+</resources>

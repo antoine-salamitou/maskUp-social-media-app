@@ -1,0 +1,35 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+project 'Mask.xcodeproj'
+target 'Mask' do
+  pod 'AppCenter/Crashes', '~> 1.12.0'
+  pod 'AppCenter/Analytics', '~> 1.12.0'
+  pod 'AppCenterReactNativeShared', '~> 1.11.0'
+  pod 'AppCenterReactNativeShared', '~> 1.11.0'
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for Mask
+
+  
+
+  platform :ios, '9.0'
+  target 'MaskTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'Mask-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for Mask-tvOS
+
+  target 'Mask-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
