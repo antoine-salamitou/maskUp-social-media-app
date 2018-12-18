@@ -11,7 +11,7 @@ import {
 import { connect } from "react-redux";
 import _ from "lodash";
 import { firebaseApp } from "../firebase";
-import moment/locale/fr"; import moment from "moment" ;
+import "moment/locale/fr"; import moment from "moment" ;
 import { Header } from "react-native-elements";
 import { Confirm } from "../components/Confirm";
 import { PopUpMenu } from "../components/PopUpMenu";

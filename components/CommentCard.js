@@ -8,7 +8,7 @@ import {
   AsyncStorage
 } from "react-native";
 import _ from "lodash";
-import moment/locale/fr"; import moment from "moment" ;
+import "moment/locale/fr"; import moment from "moment" ;
 import { connect } from "react-redux";
 import Lightbox from "react-native-lightbox";
 import * as actions from "../actions";
