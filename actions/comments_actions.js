@@ -2,6 +2,7 @@ import { GO_TO_POST, CREATE_COMMENT_TEXT, COMMENT_FINISHED } from "./types";
 import RNFetchBlob from "react-native-fetch-blob";
 import { firebaseApp } from "../firebase";
 import _ from "lodash";
+import Analytics from "appcenter-analytics";
 import { Platform, Alert } from "react-native";
 
 export const goToPost = postKey => ({
@@ -55,7 +56,8 @@ export const createComment = (
   oneSignalId,
   imagePath,
   imageWidth,
-  imageHeight
+  imageHeight,
+  color
 ) => async dispatch => {
   if (
     text &&
@@ -111,6 +113,25 @@ export const createComment = (
     dispatch({ type: COMMENT_FINISHED });
     return Alert.alert("Les insultes ne sont pas tolérées");
   }
+  let typePost = "";
+  switch (color) {
+    case "yellow":
+      typePost = "Lance un débat";
+      break;
+    case "blue":
+      typePost = "Que se passe t'il en ce moment";
+      break;
+    case "green":
+      typePost = "Partage un secret";
+      break;
+
+    case "red":
+      typePost = "Déclare ton crush";
+      break;
+    default:
+      typePost = "";
+  }
+  Analytics.trackEvent("Create Comment", { Category: typePost });
   dispatch({ type: COMMENT_FINISHED });
 
   if (text || imagePath) {

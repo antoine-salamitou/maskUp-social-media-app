@@ -1,8 +1,28 @@
 import { firebaseApp } from '../firebase';
 import _ from 'lodash';
+import Analytics from "appcenter-analytics";
 
 
-export const likePost = (group, post, oneSignalIdCreator, oneSignalId, userId) => async () => {
+export const likePost = (group, post, oneSignalIdCreator, oneSignalId, userId, color) => async () => {
+let typePost = "";
+  switch (color) {
+    case "yellow":
+      typePost = "Lance un débat";
+      break;
+    case "blue":
+      typePost = "Que se passe t'il en ce moment";
+      break;
+    case "green":
+      typePost = "Partage un secret";
+      break;
+
+    case "red":
+      typePost = "Déclare ton crush";
+      break;
+    default:
+      typePost = "";
+  }
+  Analytics.trackEvent("Like Post", { Category: typePost });
     await firebaseApp.firebase_.database().ref(`/posts/${group}/${post}`).transaction(
       (p) => {
         if (p) {
@@ -56,7 +76,27 @@ export const likePost = (group, post, oneSignalIdCreator, oneSignalId, userId) =
     }*/
 };
 
-export const dislikePost = (group, post, oneSignalIdCreator, oneSignalId, userId) => async () => {
+export const dislikePost = (group, post, oneSignalIdCreator, oneSignalId, userId, color) => async () => {
+  let typePost = "";
+    switch (color) {
+      case "yellow":
+        typePost = "Lance un débat";
+        break;
+      case "blue":
+        typePost = "Que se passe t'il en ce moment";
+        break;
+      case "green":
+        typePost = "Partage un secret";
+        break;
+
+      case "red":
+        typePost = "Déclare ton crush";
+        break;
+      default:
+        typePost = "";
+    }
+    Analytics.trackEvent("Dislike Post", { Category: typePost });
+
     await firebaseApp.firebase_.database().ref(`/posts/${group}/${post}`).transaction(
       (p) => {
         if (p) {
@@ -108,6 +148,7 @@ export const dislikePost = (group, post, oneSignalIdCreator, oneSignalId, userId
 
 
 export const likeComment = (post, group, comment, oneSignalIdCreator, oneSignalId, userId) => async () => {
+Analytics.trackEvent("Like Comment");
   const updates = {};
     await firebaseApp.firebase_.database().ref(`/posts_comments/${post}/${comment}`).transaction(
       (p) => {
@@ -149,6 +190,7 @@ export const likeComment = (post, group, comment, oneSignalIdCreator, oneSignalI
 };
 
 export const dislikeComment = (post, group, comment, oneSignalIdCreator, oneSignalId, userId) => async () => {
+Analytics.trackEvent("Dislike Comment");
   const updates = {};
     await firebaseApp.firebase_.database().ref(`/posts_comments/${post}/${comment}`).transaction(
       (p) => {

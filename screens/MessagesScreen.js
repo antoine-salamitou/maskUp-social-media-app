@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 import { firebaseApp } from "../firebase";
+import Analytics from "appcenter-analytics";
 import { Button } from "react-native-elements";
 import ImagePicker from "react-native-image-picker";
 import RNFetchBlob from "react-native-fetch-blob";
@@ -91,6 +92,7 @@ class MessagesScreen extends Component {
     counter: 30,
     chatKey: "",
     postKey: "",
+    postColor: "",
     avatar: "",
     firstName: "",
     lastName: "",
@@ -130,6 +132,7 @@ class MessagesScreen extends Component {
         const userId = this.props.userId;
         this.setState({
           postKey: snapshot.val().postKey,
+          postColor: snapshot.val().postColor,
           avatar: snapshot.val().avatar[userId].avatar,
           firstName: snapshot.val().name[userId].firstName,
           lastName: snapshot.val().name[userId].lastName
@@ -245,6 +248,7 @@ class MessagesScreen extends Component {
           const userId = this.props.userId;
           this.setState({
             postKey: snapshot.val().postKey,
+            postColor: snapshot.val().postColor,
             avatar: snapshot.val().avatar[userId].avatar,
             firstName: snapshot.val().name[userId].firstName,
             lastName: snapshot.val().name[userId].lastName
@@ -314,7 +318,26 @@ class MessagesScreen extends Component {
   }
 
   onSend = async () => {
+    let typePost = "";
+      switch (this.state.postColor) {
+        case "yellow":
+          typePost = "Lance un débat";
+          break;
+        case "blue":
+          typePost = "Que se passe t'il en ce moment";
+          break;
+        case "green":
+          typePost = "Partage un secret";
+          break;
+
+        case "red":
+          typePost = "Déclare ton crush";
+          break;
+        default:
+          typePost = "";
+      }
     const updates = {};
+    Analytics.trackEvent("send message", { Category: typePost });
     if (this.state.messages.length === 1) {
       //si c le premier message on crée la conversation chez l'autre user aussi
 
@@ -483,6 +506,7 @@ class MessagesScreen extends Component {
           const userId = this.props.userId;
           this.setState({
             postKey: snapshot.val().postKey,
+            postColor: snapshot.val().postColor,
             avatar: snapshot.val().avatar[userId].avatar,
             firstName: snapshot.val().name[userId].firstName,
             lastName: snapshot.val().name[userId].lastName
@@ -569,6 +593,26 @@ class MessagesScreen extends Component {
   };
 
   onAccept = async () => {
+    let typePost = "";
+      switch (this.state.postColor) {
+        case "yellow":
+          typePost = "Lance un débat";
+          break;
+        case "blue":
+          typePost = "Que se passe t'il en ce moment";
+          break;
+        case "green":
+          typePost = "Partage un secret";
+          break;
+
+        case "red":
+          typePost = "Déclare ton crush";
+          break;
+        default:
+          typePost = "";
+      }
+    const updates = {};
+    Analytics.trackEvent("Reveal identity", { Category: typePost });
     const updates = {};
     updates[
       `user_conversations/${this.props.userId}/${this.props.chatKey}/avatar/${

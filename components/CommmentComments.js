@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import _ from "lodash";
 import "moment/locale/fr";
  import moment from "moment" ;
+ import Analytics from "appcenter-analytics";
 import { firebaseApp } from "../firebase";
 import { connect } from "react-redux";
 import * as actions from "../actions";
@@ -86,6 +87,7 @@ class CommentComments extends Component {
   };
 
   likeCommentComment = async (post, group, comment, commentComment) => {
+    Analytics.trackEvent("Like Comment Comment");
     const updates = {};
     this.setState({ liked: true });
     await firebaseApp.firebase_
@@ -117,6 +119,7 @@ class CommentComments extends Component {
   };
 
   dislikeCommentComment = async (post, group, comment, commentComment) => {
+    Analytics.trackEvent("Dislike Comment Comment");
     const updates = {};
     this.setState({ disliked: true });
     await firebaseApp.firebase_

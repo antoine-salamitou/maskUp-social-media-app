@@ -55,13 +55,12 @@
 		712852CF21BEADC200ADC998 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712852CE21BEADC200ADC998 /* SystemConfiguration.framework */; };
 		7163EBB121C93DD5005E8B76 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB28E1216BCA5E005C4416 /* libCodePush.a */; };
 		7164C9AE21C927A500EB229E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		71CC03E121CA6E0000C18994 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71CC03B321CA6DFF00C18994 /* AppCenter-Config.plist */; };
 		71D803FB21C40ABD00707A7A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D803F721C40ABB00707A7A /* Bolts.framework */; };
 		71D803FC21C40ABD00707A7A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D803F821C40ABC00707A7A /* FBSDKCoreKit.framework */; };
 		71D803FD21C40ABD00707A7A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D803F921C40ABD00707A7A /* FBSDKShareKit.framework */; };
 		71D803FE21C40ABD00707A7A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D803FA21C40ABD00707A7A /* FBSDKLoginKit.framework */; };
 		71E33F9321C9A7C400596AEB /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 71E33F9221C9A7C400596AEB /* main.jsbundle */; };
-		71E33F9621C9B04600596AEB /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 71E33F9421C9B04600596AEB /* assets */; };
-		71E33F9721C9B04600596AEB /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 71E33F9521C9B04600596AEB /* main.jsbundle */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		842933C01842471B82B66B43 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0345143DDE0480681428B87 /* MaterialCommunityIcons.ttf */; };
 		961D44BF234F426695DBC4AD /* libRCTOneSignal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F19FF2604F4DE7A77412A4 /* libRCTOneSignal.a */; };
@@ -458,13 +457,12 @@
 		714C745721BEAF9900E2DA1F /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		714C745821BEAF9900E2DA1F /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
 		714C745A21BEAF9900E2DA1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71CC03B321CA6DFF00C18994 /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "Mask/AppCenter-Config.plist"; sourceTree = "<group>"; };
 		71D803F721C40ABB00707A7A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		71D803F821C40ABC00707A7A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		71D803F921C40ABD00707A7A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		71D803FA21C40ABD00707A7A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		71E33F9221C9A7C400596AEB /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		71E33F9421C9B04600596AEB /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
-		71E33F9521C9B04600596AEB /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		72F678AA3FC7434DB801234E /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -650,9 +648,8 @@
 			children = (
 				714A668B215ACCCC00951A32 /* Mask.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
-				71E33F9421C9B04600596AEB /* assets */,
-				71E33F9521C9B04600596AEB /* main.jsbundle */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				71CC03B321CA6DFF00C18994 /* AppCenter-Config.plist */,
 				71E33F9221C9A7C400596AEB /* main.jsbundle */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -1475,11 +1472,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71E33F9721C9B04600596AEB /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				5ADAF1E421DC4BE8AD5EA7A0 /* Entypo.ttf in Resources */,
-				71E33F9621C9B04600596AEB /* assets in Resources */,
 				230E3C9BF5314B1CB391EED8 /* EvilIcons.ttf in Resources */,
 				FA3C3DB86C4E4F09B7A60C33 /* Feather.ttf in Resources */,
 				4D0FADE323324FFF9CFFFE70 /* FontAwesome.ttf in Resources */,
@@ -1488,6 +1483,7 @@
 				FF71DE616A6E4B70B701E6A4 /* FontAwesome5_Solid.ttf in Resources */,
 				2CA3ADA5EB214218AC99E999 /* Foundation.ttf in Resources */,
 				71E33F9321C9A7C400596AEB /* main.jsbundle in Resources */,
+				71CC03E121CA6E0000C18994 /* AppCenter-Config.plist in Resources */,
 				55F8F9D13AAD4A9E81733E65 /* Ionicons.ttf in Resources */,
 				842933C01842471B82B66B43 /* MaterialCommunityIcons.ttf in Resources */,
 				64C032D512314D4E90A19DF7 /* MaterialIcons.ttf in Resources */,

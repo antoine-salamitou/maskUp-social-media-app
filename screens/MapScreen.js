@@ -32,8 +32,7 @@ class MapScreen extends Component {
     onEndReachedCalledDuringMomentum: true
   };
 
-componentWillMount() {
-
+async componentWillMount() {
     OneSignal.init("3bdabd6a-1c24-4e3d-a287-4b8fe38f3e05");
     OneSignal.registerForPushNotifications();
     OneSignal.configure();

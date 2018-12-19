@@ -1,6 +1,7 @@
 import { firebaseApp } from "../firebase";
 import { Alert, Platform } from "react-native";
 import _ from "lodash";
+import Analytics from "appcenter-analytics";
 import RNFetchBlob from "react-native-fetch-blob";
 import { CREATE_POST_TEXT, POST_FINISHED, OPEN_MODAL } from "./types";
 
@@ -113,6 +114,27 @@ export const createPost = (
       }, 1000);
     } else {
       let updates = {};
+
+      let typePost = "";
+      switch (color) {
+        case "yellow":
+          typePost = "Lance un débat";
+          break;
+        case "blue":
+          typePost = "Que se passe t'il en ce moment";
+          break;
+        case "green":
+          typePost = "Partage un secret";
+          break;
+
+        case "red":
+          typePost = "Déclare ton crush";
+          break;
+        default:
+          typePost = "";
+      }
+      Analytics.trackEvent("Create Post", { Category: typePost });
+
 
       if (text || imagePath) {
         const newPostKey = firebaseApp.firebase_
@@ -327,8 +349,8 @@ export const createPost = (
           .database()
           .ref()
           .update(updates, error => {
-            if (error){
-              Alert.alert('Verifiez votre connection internet')
+            if (error) {
+              Alert.alert("Verifiez votre connection internet");
             }
           });
 

@@ -10,6 +10,7 @@ import {
   AsyncStorage,
   Alert
 } from "react-native";
+import Analytics from "appcenter-analytics";
 import _ from "lodash";
 import { firebaseApp } from "../firebase";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -181,6 +182,7 @@ class CommentCardView extends Component {
       this.setState({ text: "", showTextInput: false });
       Alert.alert("Les insultes ne sont pas tolérées");
     } else {
+      Analytics.trackEvent("Create Comment Comment");
       const updates = {};
       const text = this.state.text;
       this.setState({ text: "", showTextInput: false });

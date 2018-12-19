@@ -20,6 +20,7 @@ import { Button } from "react-native-elements";
 import Lightbox from "react-native-lightbox";
 import _ from "lodash";
 import "moment/locale/fr";
+import Analytics from "appcenter-analytics";
 import moment from "moment" ;
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import CommentCardView from "../components/CommentCardView";
@@ -322,7 +323,26 @@ class CommentScreen extends Component {
       });
   };
 
-  createConversation = async (idPost, userIdPost, userIdContact) => {
+  createConversation = async (idPost, userIdPost, userIdContact, color) => {
+    let typePost = "";
+    switch (color) {
+      case "yellow":
+        typePost = "Lance un débat";
+        break;
+      case "blue":
+        typePost = "Que se passe t'il en ce moment";
+        break;
+      case "green":
+        typePost = "Partage un secret";
+        break;
+
+      case "red":
+        typePost = "Déclare ton crush";
+        break;
+      default:
+        typePost = "";
+    }
+    Analytics.trackEvent("Create Conversation", { Category: typePost });
     const updates = {};
     const isPresent = this.props.contact.some(element => {
       return element.postKey === idPost + userIdPost;
@@ -431,7 +451,8 @@ class CommentScreen extends Component {
                   userId: userIdContact
                 }
               },
-              postKey: this.state.post.postKey
+              postKey: this.state.post.postKey,
+              postColor: color,
             };
           } else {
             updates[`messages/${newConvKey}/${messageKey}`] = {
@@ -486,7 +507,8 @@ class CommentScreen extends Component {
                   userId: userIdContact
                 }
               },
-              postKey: this.state.post.postKey
+              postKey: this.state.post.postKey,
+              postColor: color
             };
           }
         } else {
@@ -542,7 +564,8 @@ class CommentScreen extends Component {
                 userId: userIdContact
               }
             },
-            postKey: this.state.post.postKey
+            postKey: this.state.post.postKey,
+            postColor: color,
           };
         }
         updates[`/user_conversations/${userIdPost}/${newConvKey}`] = content;
@@ -589,7 +612,8 @@ class CommentScreen extends Component {
                 this.createConversation(
                   this.state.post.postKey,
                   this.state.post.userId,
-                  this.props.userId
+                  this.props.userId,
+                  this.state.post.color
                 );
               }}
             >
@@ -659,7 +683,8 @@ class CommentScreen extends Component {
       this.state.post.postKey,
       this.state.post.oneSignalIdCreator,
       this.props.oneSignalId,
-      this.props.userId
+      this.props.userId,
+      this.state.post.color
     );
   };
 
@@ -670,7 +695,8 @@ class CommentScreen extends Component {
       this.state.post.postKey,
       this.state.post.oneSignalIdCreator,
       this.props.oneSignalId,
-      this.props.userId
+      this.props.userId,
+      this.state.post.color
     );
   };
 
@@ -950,7 +976,8 @@ class CommentScreen extends Component {
       this.props.oneSignalId,
       this.state.imagePath,
       this.state.imageWidth,
-      this.state.imageHeight
+      this.state.imageHeight,
+      this.state.post.color
     );
     Keyboard.dismiss();
   };

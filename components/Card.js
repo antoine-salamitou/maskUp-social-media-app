@@ -16,6 +16,7 @@ import ImagePicker from "react-native-image-picker";
 import "moment/locale/fr";
 import moment from "moment" ;
 import CommentCard from "./CommentCard";
+import Analytics from "appcenter-analytics";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import { Confirm } from "./Confirm";
@@ -111,7 +112,26 @@ class Card extends Component {
     }
   };
 
-  createConversation = async (idPost, userIdPost, userIdContact) => {
+  createConversation = async (idPost, userIdPost, userIdContact, color) => {
+    let typePost = "";
+    switch (color) {
+      case "yellow":
+        typePost = "Lance un débat";
+        break;
+      case "blue":
+        typePost = "Que se passe t'il en ce moment";
+        break;
+      case "green":
+        typePost = "Partage un secret";
+        break;
+
+      case "red":
+        typePost = "Déclare ton crush";
+        break;
+      default:
+        typePost = "";
+    }
+    Analytics.trackEvent("Create Conversation", { Category: typePost });
     const updates = {};
     const isPresent = this.props.contact.some(element => {
       return element.postKey === idPost + userIdPost;
@@ -188,6 +208,7 @@ class Card extends Component {
             user2: userIdContact
           },
           postKey: this.props.data.postData.postKey,
+          postColor: color,
           avatar: {
             [userIdPost]: {
               avatar: this.props.data.postData.avatar,
@@ -242,6 +263,7 @@ class Card extends Component {
             user2: userIdContact
           },
           postKey: this.props.data.postData.postKey,
+          postColor: color,
           avatar: {
             [userIdPost]: {
               avatar: this.props.data.postData.avatar,
@@ -297,6 +319,7 @@ class Card extends Component {
           user2: userIdContact
         },
         postKey: this.props.data.postData.postKey,
+        postColor: color,
         avatar: {
           [userIdPost]: {
             avatar: this.props.data.postData.avatar,
@@ -362,7 +385,8 @@ class Card extends Component {
                 this.createConversation(
                   this.props.data.id,
                   this.props.data.postData.userId,
-                  this.props.userId
+                  this.props.userId,
+                  this.props.data.postData.color
                 );
               }}
             >
@@ -422,7 +446,8 @@ class Card extends Component {
       this.props.data.postData.postKey,
       this.props.data.postData.oneSignalIdCreator,
       this.props.oneSignalId,
-      this.props.userId
+      this.props.userId,
+      this.props.data.postData.color
     );
   };
 
@@ -433,7 +458,8 @@ class Card extends Component {
       this.props.data.postData.postKey,
       this.props.data.postData.oneSignalIdCreator,
       this.props.oneSignalId,
-      this.props.userId
+      this.props.userId,
+      this.props.data.postData.color
     );
   };
 
