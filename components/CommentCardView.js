@@ -15,7 +15,7 @@ import _ from "lodash";
 import { firebaseApp } from "../firebase";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import "moment/locale/fr";
- import moment from "moment" ;
+import moment from "moment";
 import { connect } from "react-redux";
 import Lightbox from "react-native-lightbox";
 import * as actions from "../actions";
@@ -838,7 +838,10 @@ class CommentCardView extends Component {
                 />
               )}
               <Text style={{ marginTop: 14, fontFamily: "Futura" }}>
-                {moment(this.props.data.postData.createdAt).fromNow()}
+                {moment(this.props.data.postData.createdAt).fromNow() ===
+                "il y a quelques secondes"
+                  ? "il y a 1s"
+                  : moment(this.props.data.postData.createdAt).fromNow().replace("minute", "mn")}
               </Text>
             </View>
             <View style={{ flexDirection: "row" }}>

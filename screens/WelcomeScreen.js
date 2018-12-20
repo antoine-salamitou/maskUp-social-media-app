@@ -1,12 +1,14 @@
 import _ from "lodash";
 import React, { Component } from "react";
-import { View, AsyncStorage } from "react-native";
+import { View, AsyncStorage, StatusBar } from "react-native";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import { Button } from "react-native-elements";
 import { Walkthrough } from "../components/walkthrough";
 import { Walkthrough1 } from "../components/walkthroughScreens/walkthrough1";
 import { Walkthrough2 } from "../components/walkthroughScreens/walkthrough2";
+import { Walkthrough3 } from "../components/walkthroughScreens/walkthrough3";
+import { Walkthrough4 } from "../components/walkthroughScreens/walkthrough4";
 import { PaginationIndicator } from "../components/paginationIndicator";
 import { Spinner } from "../components/Spinner";
 
@@ -47,15 +49,18 @@ class WelcomeScreen extends Component {
       </View>
     ) : (
       <View style={styles.screen}>
+      <StatusBar hidden={true} />
         <Walkthrough onChanged={index => this.changeIndex(index)}>
           <Walkthrough1 />
           <Walkthrough2 />
+          <Walkthrough3 />
+          <Walkthrough4 />
         </Walkthrough>
-        <PaginationIndicator length={2} current={this.state.index} />
+        <PaginationIndicator length={4} current={this.state.index} />
         <Button
           large
           buttonStyle={styles.button}
-          title="GET STARTED"
+          title="Continuer"
           onPress={() => {
             this.onSlidesComplete();
           }}
@@ -67,12 +72,12 @@ class WelcomeScreen extends Component {
 
 const styles = {
   screen: {
-    paddingVertical: 28,
+    paddingBottom: 15,
     alignItems: "center",
     flex: 1
   },
   button: {
-    marginTop: 25,
+    marginTop: 15,
     marginHorizontal: 16,
     backgroundColor: "rgb(73, 40, 146)",
     width: 300,

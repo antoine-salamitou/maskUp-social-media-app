@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Image, View, Dimensions, Text } from "react-native";
 
-export class Walkthrough2 extends React.Component {
+export class Walkthrough3 extends React.Component {
   render() {
     const { width } = Dimensions.get("window");
     const image = (
@@ -12,7 +12,7 @@ export class Walkthrough2 extends React.Component {
           marginTop: 20,
           marginBottom: 5
         }}
-        source={require("../../assets/images/thumbnail_Mask_Tuto_2.png")}
+        source={require("../../assets/images/thumbnail_Mask_Tuto_3.png")}
       />
     );
 

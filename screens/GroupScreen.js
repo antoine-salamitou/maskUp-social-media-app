@@ -25,10 +25,15 @@ class GroupScreen extends Component {
     longitude: "",
     latitude: "",
     showModal: false,
-    lyceeSelectionne: ""
+    lyceeSelectionne: "",
+    marginTopHeader: 0
   };
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
+    const test = await this.props.isIphoneXorAbove()
+    if (test === true) {
+      this.setState({ marginTopHeader: 20 });
+    }
     navigator.geolocation.getCurrentPosition(
       position => {
         axios
@@ -312,7 +317,7 @@ class GroupScreen extends Component {
             }}
           >
             <Image
-              style={{ width: 100, height: 100 }}
+              style={{ width: 100, height: 100, marginTop: this.state.marginTopHeader }}
               source={require("../assets/images/logo_mask.png")}
             />
           </View>

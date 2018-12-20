@@ -6,18 +6,36 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  ScrollView,
   Image,
-  Button
+  ScrollView
 } from "react-native";
+import { Button } from "react-native-elements";
 import { firebaseApp } from "../firebase";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class PolitiqueScreen extends Component {
+
+  state = {
+    notifs: [],
+    counter: 10,
+    isFinished: true,
+    isLoading: false,
+    isEmpty: false,
+    showModal: false,
+    showModal2: false,
+    marginTopHeader: 0
+  };
+
+  async componentWillMount() {
+    const test = await this.props.isIphoneXorAbove()
+    if (test === true) {
+      this.setState({ marginTopHeader: 20 });
+    }
+  }
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: "rgb(230, 34, 32)" }}>
+      <ScrollView style={{ flex: 1, backgroundColor: "rgb(230, 34, 32)" }}>
         <View
           style={{
             flexDirection: "column",
@@ -26,7 +44,7 @@ class PolitiqueScreen extends Component {
           }}
         >
           <Image
-            style={{ width: 100, height: 100 }}
+            style={{ width: 100, height: 100, marginTop: this.state.marginTopHeader }}
             source={require("../assets/images/logo_mask.png")}
           />
 
@@ -35,34 +53,34 @@ class PolitiqueScreen extends Component {
               {" "}
               Félicitations !
             </Text>
-            <Text style={{ fontSize: 20, color: "white", marginTop: 10 }}>
+            <Text style={{ fontSize: 18, color: "white", marginTop: 10 }}>
               Tu as choisi de rejoindre le lycée {this.props.nomExactLycee}
             </Text>
-            <Text style={{ fontSize: 20, color: "white", marginTop: 20 }}>
+            <Text style={{ fontSize: 18, color: "white", marginTop: 20 }}>
               En continuant sur Mask. tu t'engages à respecter les points
               suivants :
             </Text>
-            <Text style={{ fontSize: 20, color: "white", marginTop: 20 }}>
+            <Text style={{ fontSize: 18, color: "white", marginTop: 20 }}>
               - Ne pas publier d'informations personelles (numéro...).
             </Text>
-            <Text style={{ fontSize: 20, color: "white", marginTop: 20 }}>
+            <Text style={{ fontSize: 18, color: "white", marginTop: 20 }}>
               - Ne pas publier de contenu offensant.
             </Text>
-            <Text style={{ fontSize: 20, color: "white", marginTop: 20 }}>
+            <Text style={{ fontSize: 18, color: "white", marginTop: 20 }}>
               - Rester positif.
             </Text>
-            <Text style={{ fontSize: 20, color: "white", marginTop: 20 }}>
+            <Text style={{ fontSize: 18, color: "white", marginTop: 20 }}>
               - Rester vigilant en signalant et dislikant les contenus déplacés.
             </Text>
           </View>
           <Button
+            large
+            buttonStyle={styles.button}
+            title="Continuer"
             onPress={() => this.props.navigation.navigate("map")}
-            title="Confirmer et continuer"
-            color="white"
-            accessibilityLabel="Learn more about this purple button"
           />
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -92,6 +110,13 @@ const styles = StyleSheet.create({
     marginTop: 9,
     marginRight: 20,
     marginLeft: 8
+  },
+  button: {
+    marginTop: 15,
+    marginHorizontal: 16,
+    backgroundColor: "rgb(73, 40, 146)",
+    width: 300,
+    borderRadius: 200
   }
 });
 

@@ -6,15 +6,19 @@ import {
   Text,
   Image,
   AsyncStorage,
-  Linking
+  Linking,
+  Modal
 } from "react-native";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { firebaseApp } from "../firebase";
-import "moment/locale/fr"; import moment from "moment" ;
+import "moment/locale/fr";
+import moment from "moment";
 import { Header } from "react-native-elements";
 import { Confirm } from "../components/Confirm";
 import { PopUpMenu } from "../components/PopUpMenu";
+import { Confidentialite } from "../components/Confidentialite";
+import { PrivacyPolicy } from "../components/PrivacyPolicy";
 import * as actions from "../actions";
 
 const IMAGES = [
@@ -36,10 +40,17 @@ class ProfileScreen extends Component {
     isLoading: false,
     isEmpty: false,
     showModal: false,
-    showModal2: false
+    showModal2: false,
+    showModal3: false,
+    showModal4: false,
+    marginTopHeader: 0
   };
 
-  componentWillMount() {
+  async componentWillMount() {
+    const test = await this.props.isIphoneXorAbove();
+    if (test === true) {
+      this.setState({ marginTopHeader: 20 });
+    }
     moment.locale("fr");
     firebaseApp.firebase_
       .database()
@@ -272,6 +283,16 @@ class ProfileScreen extends Component {
     this.props.navigation.navigate("welcome");
   };
 
+  onPressButon2 = async () => {
+    await this.setState({ showModal2: false });
+    this.setState({ showModal3: true });
+  };
+
+  onPressButon3 = async () => {
+    await this.setState({ showModal2: false });
+    this.setState({ showModal4: true });
+  };
+
   render() {
     return (
       <View style={{ backgroundColor: "white", flex: 1 }}>
@@ -296,10 +317,11 @@ class ProfileScreen extends Component {
           }}
           outerContainerStyles={{
             borderBottomColor: "#FF1744",
-            borderBottomWidth: 1
+            borderBottomWidth: 1,
+            marginTop: this.state.marginTopHeader
           }}
         />
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <FlatList
             data={this.state.notifs}
             renderItem={this.renderItem}
@@ -326,6 +348,23 @@ class ProfileScreen extends Component {
           Button3Text="Voir la politique de confidentialité"
           onDecline={this.onDecline2}
         />
+        <Modal visible={this.state.showModal3}>
+          <Confidentialite
+            closeModal={() => {
+              this.setState({ showModal3: false });
+            }}
+            visible={this.state.showModal3}
+          />
+        </Modal>
+
+        <Modal visible={this.state.showModal4}>
+          <PrivacyPolicy
+            closeModal2={() => {
+              this.setState({ showModal4: false });
+            }}
+            visible={this.state.showModal4}
+          />
+        </Modal>
       </View>
     );
   }

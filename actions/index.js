@@ -6,3 +6,4 @@ export * from './chat_actions';
 export * from './messages_actions';
 export * from './contact_actions';
 export * from './newNotification_action';
+export * from './iphoneX_actions';

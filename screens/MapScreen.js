@@ -29,10 +29,16 @@ class MapScreen extends Component {
     isFinished: false,
     counter: 7,
     thisArguments: [],
-    onEndReachedCalledDuringMomentum: true
+    onEndReachedCalledDuringMomentum: true,
+    marginTopHeader: 10
   };
 
 async componentWillMount() {
+  const test = await this.props.isIphoneXorAbove();
+  if (test === true) {
+    this.setState({ marginTopHeader: 30 });
+  }
+
     OneSignal.init("3bdabd6a-1c24-4e3d-a287-4b8fe38f3e05");
     OneSignal.registerForPushNotifications();
     OneSignal.configure();
@@ -325,7 +331,7 @@ async componentWillMount() {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flexDirection: "row", marginTop: 10, marginBottom: 10 }}>
+        <View style={{ flexDirection: "row", marginTop: this.state.marginTopHeader, marginBottom: 10 }}>
           <TouchableOpacity onPress={() => this.props.openModal("red")}>
             <Image
               style={styles.iconHeart}
@@ -390,8 +396,8 @@ const styles = StyleSheet.create({
     marginTop: 13
   },
   iconHeart: {
-    height: 85,
-    width: 85,
+    height: screenWidth /4.5,
+    width: screenWidth /4.5,
     marginLeft: screenWidth / 52,
     shadowColor: "black",
     shadowOpacity: 0.1,

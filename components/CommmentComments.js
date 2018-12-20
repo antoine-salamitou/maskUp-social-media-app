@@ -277,7 +277,10 @@ class CommentComments extends Component {
             )}
             <Text style={{ marginTop: 10, fontFamily: "Futura" }}>
               {" "}
-              {moment(this.props.data.createdAt).fromNow()}
+              {moment(this.props.data.createdAt).fromNow() ===
+              "il y a quelques secondes"
+                ? "il y a 1s"
+                : moment(this.props.data.createdAt).fromNow().replace("minute", "mn")}
             </Text>
           </View>
           <View style={{ flexDirection: "row" }}>

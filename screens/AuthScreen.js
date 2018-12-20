@@ -23,7 +23,7 @@ class AuthScreen extends Component {
 
   render() {
     const image = (
-      <Image source={require("../assets/images/kittenImageDark.png")} />
+      <Image style={{ width: 70 + "%", height: 30 +  "%"}} source={require("../assets/images/LOGO_MASK-1024.png")} />
     );
     return this.props.loading === true ? (
       <View style={styles.screen}>
@@ -35,7 +35,7 @@ class AuthScreen extends Component {
         <Button
           buttonStyle={styles.FBbutton}
           onPress={this.onFBButtonPress}
-          title="Continue with Facebook"
+          title="Connexion à Facebook"
         />
       </View>
     );
@@ -46,7 +46,8 @@ const styles = {
   screen: {
     alignItems: "center",
     justifyContent: "center",
-    flex: 1
+    flex: 1,
+    backgroundColor: "rgb(230, 34, 32)"
   },
   FBbutton: {
     marginTop: 25,

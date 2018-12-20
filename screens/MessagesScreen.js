@@ -613,7 +613,7 @@ class MessagesScreen extends Component {
       }
     const updates = {};
     Analytics.trackEvent("Reveal identity", { Category: typePost });
-    const updates = {};
+
     updates[
       `user_conversations/${this.props.userId}/${this.props.chatKey}/avatar/${
         this.props.userId
@@ -994,12 +994,7 @@ class MessagesScreen extends Component {
               flexDirection: "row"
             }}
           >
-            <TouchableOpacity onPress={() => this.photo()}>
-              <Image
-                style={styles.list_photo}
-                source={require("../assets/icons/picture.png")}
-              />
-            </TouchableOpacity>
+
             <TextInput
               multiline
               style={styles.textInput}
@@ -1052,7 +1047,7 @@ const styles = {
     borderRadius: 20,
     height: 45,
     margin: 2,
-    width: 72 + "%",
+    width: 87 + "%",
     padding: 10
   },
   send: {
