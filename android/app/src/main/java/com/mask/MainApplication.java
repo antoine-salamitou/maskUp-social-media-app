@@ -17,8 +17,6 @@ import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
-import com.microsoft.codepush.react.CodePush;
-import com.microsoft.codepush.react.CodePush;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
@@ -66,7 +64,7 @@ public class MainApplication extends Application implements ReactApplication {
             new ReactNativeOneSignalPackage(),
             new ImagePickerPackage(),
             new RNFetchBlobPackage(),
-            new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
+            new CodePush("OJm0exmZSO4B-1I3QDLkh75O5dcv0db06abd-5f8e-44b9-8dce-f671f61c5621", MainApplication.this, BuildConfig.DEBUG),
         //**  ADD THE FOLLOWING LINE **//
         new FBSDKPackage(mCallbackManager)
     );

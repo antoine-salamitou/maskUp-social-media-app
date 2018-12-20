@@ -53,6 +53,8 @@
 		6F890FA348BD420D919D894A /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 125B1DE1AA564D95B3A25528 /* libRCTFBSDK.a */; };
 		712852CD21BEADAB00ADC998 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712852A221BEADAB00ADC998 /* UIKit.framework */; };
 		712852CF21BEADC200ADC998 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712852CE21BEADC200ADC998 /* SystemConfiguration.framework */; };
+		712FB9F121CBBCAC005EBB55 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 712FB9C221CBBCAB005EBB55 /* main.jsbundle */; };
+		712FB9F221CBBCAC005EBB55 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 712FB9F021CBBCAB005EBB55 /* assets */; };
 		7163EBB121C93DD5005E8B76 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB28E1216BCA5E005C4416 /* libCodePush.a */; };
 		7164C9AE21C927A500EB229E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		71CC03E121CA6E0000C18994 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71CC03B321CA6DFF00C18994 /* AppCenter-Config.plist */; };
@@ -452,6 +454,8 @@
 		7116861321BEA3BB007ACB1D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		712852A221BEADAB00ADC998 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		712852CE21BEADC200ADC998 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		712FB9C221CBBCAB005EBB55 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		712FB9F021CBBCAB005EBB55 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		714A668B215ACCCC00951A32 /* Mask.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Mask.entitlements; path = Mask/Mask.entitlements; sourceTree = "<group>"; };
 		714C745721BEAF9900E2DA1F /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		714C745821BEAF9900E2DA1F /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
@@ -648,6 +652,8 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				71CC03B321CA6DFF00C18994 /* AppCenter-Config.plist */,
+				712FB9F021CBBCAB005EBB55 /* assets */,
+				712FB9C221CBBCAB005EBB55 /* main.jsbundle */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -1472,6 +1478,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				5ADAF1E421DC4BE8AD5EA7A0 /* Entypo.ttf in Resources */,
+				712FB9F121CBBCAC005EBB55 /* main.jsbundle in Resources */,
 				230E3C9BF5314B1CB391EED8 /* EvilIcons.ttf in Resources */,
 				FA3C3DB86C4E4F09B7A60C33 /* Feather.ttf in Resources */,
 				4D0FADE323324FFF9CFFFE70 /* FontAwesome.ttf in Resources */,
@@ -1479,6 +1486,7 @@
 				6AEE5785CDA446F5A9C1D860 /* FontAwesome5_Regular.ttf in Resources */,
 				FF71DE616A6E4B70B701E6A4 /* FontAwesome5_Solid.ttf in Resources */,
 				2CA3ADA5EB214218AC99E999 /* Foundation.ttf in Resources */,
+				712FB9F221CBBCAC005EBB55 /* assets in Resources */,
 				71CC03E121CA6E0000C18994 /* AppCenter-Config.plist in Resources */,
 				55F8F9D13AAD4A9E81733E65 /* Ionicons.ttf in Resources */,
 				842933C01842471B82B66B43 /* MaterialCommunityIcons.ttf in Resources */,
