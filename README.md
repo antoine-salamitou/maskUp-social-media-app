@@ -4,8 +4,8 @@ Observing that people were becoming more and more conscious about the indelible 
 
 Personal project - and old so a lot of refactoring if I had to make it alive again.
 
-##Tech 
-#React Native(Javascript) - Redux
-#Google Firebase 
-#Microsoft CodePush
+#Tech 
+React Native(Javascript) - Redux
+Google Firebase 
+Microsoft CodePush
 
