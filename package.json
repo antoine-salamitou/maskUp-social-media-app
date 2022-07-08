@@ -18,7 +18,7 @@
     "https": "^1.0.0",
     "latlng-to-zip": "0.0.1",
     "lodash": "^4.17.10",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "plist": "^3.0.1",
     "prop-types": "^15.6.2",
     "react": "16.4.1",
